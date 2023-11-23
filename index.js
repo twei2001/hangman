@@ -28,7 +28,7 @@ const playGame = () => {
   };
 
   while (round < randomWord.length && roundLoss < 6) {
-    console.log(`You have ${6 - roundLoss} guesses left`);
+    
     console.log(underscoreArray.join(' '));
     const guess = prompt.question("Please guess a letter: ").toLowerCase();
 
@@ -53,7 +53,7 @@ const playGame = () => {
   
 
   if (roundLoss === 6) {
-    console.log(`You lose, the word was ${randomWord}`);
+    console.log(`You lose, the word was ${randomWord.toUpperCase()}`);
   } else if (underscoreArray.join('') === letters.join('')) {
     console.log(`You guessed the word ${randomWord.toUpperCase()}, you win!`);
     break
