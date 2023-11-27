@@ -7,18 +7,17 @@ const playGame = () => {
     return wordBank[index];
   };
 
-  const randomWord = getRandomWord()
-  let letters = randomWord.split('');
+  const randomWord = getRandomWord();
+  let letters = randomWord.split("");
   let underscoreArray = [];
-
+console.log(randomWord)
   for (let i = 0; i < letters.length; i++) {
-    underscoreArray.push('_');
+    underscoreArray.push("_");
   }
   let letterInput = [];
   let round = 0;
   let roundLoss = 0;
-  let stickfigure = '';
-
+  let stickfigure = "";
 
   const logStickFigure = () => {
     console.log(`Guesses Left: ${6 - roundLoss}`);
@@ -28,8 +27,7 @@ const playGame = () => {
   };
 
   while (round < randomWord.length && roundLoss < 6) {
-    
-    console.log(underscoreArray.join(' '));
+    console.log(underscoreArray.join(" "));
     const guess = prompt.question("Please guess a letter: ").toLowerCase();
 
     if (letters.includes(guess)) {
@@ -40,7 +38,7 @@ const playGame = () => {
           guessIndexes.push(i);
         }
       }
-      guessIndexes.forEach(index => {
+      guessIndexes.forEach((index) => {
         underscoreArray[index] = guess;
       });
     } else if (letterInput.includes(guess)) {
@@ -50,16 +48,21 @@ const playGame = () => {
       logStickFigure();
     }
     letterInput.push(guess);
-  
 
-  if (roundLoss === 6) {
-    console.log(`You lose, the word was ${randomWord.toUpperCase()}`);
-  } else if (underscoreArray.join('') === letters.join('')) {
-    console.log(`You guessed the word ${randomWord.toUpperCase()}, you win!`);
-    break
+    const playAgain = ()=>{
+      const response = prompt.question("To play again type: 'yes'  " ).toLowerCase();
+      if(response === 'yes'){
+        playGame()
+      }
+    }
+    if (roundLoss === 6) {
+      console.log(`You lose, the word was ${randomWord.toUpperCase()}`);
+      playAgain()
+    } else if (underscoreArray.join("") === letters.join("")) {
+      console.log(`You guessed the word ${randomWord.toUpperCase()}, you win!`);
+      playAgain()
+      break;
+    }
   }
-}
-}
+};
 playGame();
-
-
