@@ -50,7 +50,7 @@ console.log(randomWord)
     letterInput.push(guess);
 
     const playAgain = ()=>{
-      const response = prompt.question("To play again type: 'yes'  " ).toLowerCase();
+      const response = prompt.question("Do you want to play again? Type yes or no  " ).toLowerCase();
       if(response === 'yes'){
         playGame()
       }
