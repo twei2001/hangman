@@ -10,7 +10,7 @@ const playGame = () => {
   const randomWord = getRandomWord();
   let letters = randomWord.split("");
   let underscoreArray = [];
-console.log(randomWord)
+
   for (let i = 0; i < letters.length; i++) {
     underscoreArray.push("_");
   }
