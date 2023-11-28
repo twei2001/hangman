@@ -1,6 +1,6 @@
 import prompt from "readline-sync";
 import wordBank from "./word-bank.js";
-
+console.log("\nWelcome to Hangman!\nPress ctrl+c to stop\n");
 const playGame = () => {
   const getRandomWord = () => {
     const index = Math.floor(Math.random() * wordBank.length);
@@ -26,10 +26,10 @@ const playGame = () => {
     console.log(stickfigure);
   };
 
-  while (round < randomWord.length && roundLoss < 6) {
+  while (roundLoss < 6) {
     console.log(underscoreArray.join(" "));
     const guess = prompt.question("Please guess a letter: ").toLowerCase();
-
+   
     if (letters.includes(guess)) {
       round++;
       const guessIndexes = [];
@@ -49,7 +49,7 @@ const playGame = () => {
     }
     letterInput.push(guess);
 
-    const playAgain = ()=>{
+    const playAgain = () =>{
       const response = prompt.question("Do you want to play again? Type yes or no  " ).toLowerCase();
       if(response === 'yes'){
         playGame()
