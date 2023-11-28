@@ -17,7 +17,7 @@ npm install --save readline-sync
 ## Starting the Game
 In Gitbash or the terminal type:
 ```
-node.
+node .
 ```
 ## Author
 T. Weish
