@@ -29,7 +29,7 @@ const playGame = () => {
   while (roundLoss < 6) {
     console.log(underscoreArray.join(" "));
     const guess = prompt.question("Please guess a letter: ").toLowerCase();
-   
+
     if (letters.includes(guess)) {
       round++;
       const guessIndexes = [];
@@ -49,18 +49,20 @@ const playGame = () => {
     }
     letterInput.push(guess);
 
-    const playAgain = () =>{
-      const response = prompt.question("Do you want to play again? Type yes or no  " ).toLowerCase();
-      if(response === 'yes'){
-        playGame()
+    const playAgain = () => {
+      const response = prompt
+        .question("Do you want to play again? Type yes or no  ")
+        .toLowerCase();
+      if (response === "yes") {
+        playGame();
       }
-    }
+    };
     if (roundLoss === 6) {
       console.log(`You lose, the word was ${randomWord.toUpperCase()}`);
-      playAgain()
+      playAgain();
     } else if (underscoreArray.join("") === letters.join("")) {
       console.log(`You guessed the word ${randomWord.toUpperCase()}, you win!`);
-      playAgain()
+      playAgain();
       break;
     }
   }
